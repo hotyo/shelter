@@ -1,0 +1,513 @@
+$color-primary: #f1cdb3;
+$color-primary-light: #fddcc4;
+
+$color-light-s: #fafafa;
+$color-light-l: #f6f6f6;
+$color-light-xl: #ffffff;
+
+$color-dark-s: #cdcdcd;
+$color-dark-m: #b2b2b2;
+$color-dark-l: #545454;
+$color-dark-xl: #4c4c4c;
+$color-dark-2xl: #444444;
+$color-dark-3xl: #292929;
+
+$start-screen-gradient-background: url(../../assets/img/noise_transparent.png),
+  radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%), #211f20;
+$footer-screen-gradient-background: url(../../assets/img/noise_transparent@2x.png),
+  radial-gradient(110.67% 538.64% at 5.73% 50%, #513d2f 0%, #1a1a1c 100%),
+  #211f20;
+
+@mixin h2 {
+  font: {
+    family: Georgia;
+    style: normal;
+    weight: 400;
+    size: 4.4rem;
+  }
+  line-height: 130%;
+}
+
+@mixin h3 {
+  font: {
+    family: Georgia;
+    style: normal;
+    weight: 400;
+    size: 3.5rem;
+  }
+  line-height: 133%;
+  letter-spacing: 0.21rem;
+}
+
+@mixin h3-mobile {
+  font: {
+    family: Georgia;
+    style: normal;
+    weight: 400;
+    size: 2.5rem;
+  }
+  line-height: 133%;
+  letter-spacing: 0.15rem;
+}
+
+@mixin h4 {
+  font: {
+    family: Georgia;
+    style: normal;
+    weight: 400;
+    size: 2rem;
+  }
+  line-height: 115%;
+  letter-spacing: 0.125rem;
+}
+
+@mixin h5 {
+  font: {
+    family: Georgia;
+    style: normal;
+    weight: 400;
+    size: 1.5rem;
+  }
+  line-height: 110%;
+  letter-spacing: 0.06rem;
+}
+
+@mixin paragraph-l {
+  font: {
+    family: Arial;
+    style: normal;
+    weight: 400;
+    size: 1.5rem;
+  }
+  line-height: 160%;
+}
+
+@mixin paragraph-s {
+  font: {
+    family: Arial;
+    style: italic;
+    weight: 400;
+    size: 1.2rem;
+  }
+  line-height: 150%;
+  letter-spacing: 0.06rem;
+}
+
+@mixin logo-title {
+  font: {
+    family: Georgia;
+    style: normal;
+    weight: 400;
+    size: 3.2rem;
+  }
+  line-height: 110%;
+  letter-spacing: 0.2rem;
+}
+
+@mixin logo-subtitle {
+  font: {
+    family: Arial;
+    style: normal;
+    weight: 400;
+    size: 1.3rem;
+  }
+  line-height: 110%;
+  letter-spacing: 0.13rem;
+}
+
+@mixin card-title {
+  font: {
+    family: Georgia;
+    style: normal;
+    weight: 400;
+    size: 2rem;
+  }
+  letter-spacing: 0.1rem;
+}
+
+@mixin card-button-title {
+  font: {
+    family: Georgia;
+    style: normal;
+    weight: 400;
+    size: 1.7rem;
+  }
+  line-height: 120%;
+  letter-spacing: 0.1rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+:root {
+  font-size: 10px;
+}
+
+.invisible {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  width: 1px;
+  height: 1px;
+  position: absolute;
+  overflow: hidden;
+}
+
+.wrapper {
+  margin: 0 auto;
+  max-width: 120rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+header {
+  width: 100vw;
+  padding: 3rem 0;
+  max-width: 100%;
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+}
+
+.logo {
+  display: flex;
+  flex-flow: column;
+  &__title {
+    @include logo-title;
+    color: $color-dark-l;
+  }
+  &__subtitle {
+    margin-top: 1rem;
+    @include logo-subtitle;
+    text-align: center;
+    color: $color-dark-3xl;
+  }
+}
+
+.menu {
+  width: 44.3rem;
+  display: flex;
+}
+
+.list {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+  &__item {
+    display: flex;
+    align-items: center;
+    .list__link {
+      @include paragraph-l;
+      color: $color-dark-l;
+      text-decoration: none;
+      &_active {
+        color: $color-dark-3xl;
+        border-bottom: 0.3rem solid $color-primary;
+      }
+      &_disabled {
+        color: $color-dark-s;
+      }
+    }
+    .list__link:hover {
+      cursor: pointer;
+      color: $color-dark-3xl;
+    }
+  }
+}
+
+.pets {
+  display: flex;
+  background-color: $color-light-l;
+  &__content {
+    height: 116.3rem;
+    margin-top: 8rem;
+    margin-bottom: 10rem;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $color-light-l;
+    &__title {
+      @include h3;
+      text-align: center;
+    }
+  }
+}
+
+.cards {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  &__item {
+    margin: 1.5rem 0;
+    height: 43.5rem;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: $color-light-s;
+    border-radius: 0.9rem;
+    .cards__title {
+      margin: 3rem;
+      @include card-title;
+      color: $color-dark-l;
+    }
+    .cards__btn {
+      padding: 1.4rem 4.3rem;
+      border-radius: 10rem;
+      border-style: none;
+      border: 0.2rem solid $color-primary;
+      background-color: none;
+      @include card-button-title;
+      color: $color-dark-3xl;
+    }
+    .cards__btn:hover {
+      cursor: pointer;
+      border-color: $color-primary-light;
+      background-color: $color-primary-light;
+    }
+  }
+  &__item:hover {
+    box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+  }
+}
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  width: 34rem;
+  &__btn {
+    width: 5.2rem;
+    height: 5.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    .pagination__text {
+      @include h4;
+    }
+  }
+  &__btn_current {
+    border: none;
+    background-color: $color-primary;
+  }
+  &__btn_active {
+    background-color: $color-light-l;
+    border: 2px solid $color-primary;
+  }
+  &__btn_disabled {
+    background-color: $color-light-l;
+    border: 2px solid $color-dark-s;
+    color: $color-dark-s;
+  }
+
+  &__btn_active:hover {
+    cursor: pointer;
+    border-color: $color-primary-light;
+    background-color: $color-primary-light;
+  }
+}
+
+.footer {
+  background: $footer-screen-gradient-background;
+  &__content {
+    width: 100%;
+    margin-top: 4rem;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+  }
+  &__image_wrapper {
+    height: 31rem;
+    .puppy-img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.content__section {
+  margin-top: 1.6rem;
+  display: flex;
+  flex-flow: row wrap;
+  width: 74.1rem;
+  justify-content: space-between;
+  &__list {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    &_contacts {
+      width: 27.84rem;
+      height: 23.4rem;
+    }
+    &_location {
+      width: 30.2rem;
+      height: 23.4rem;
+    }
+    &__title {
+      @include h3;
+      color: $color-light-xl;
+    }
+    &__item {
+      display: flex;
+      align-items: center;
+      &__title {
+        text-decoration: none;
+        margin-left: 2rem;
+        @include h4;
+        color: $color-primary;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1280px) {
+  .wrapper {
+    padding: 0 3rem;
+  }
+
+  .pets__content {
+    margin-bottom: 7.6rem;
+    height: 157.8rem;
+  }
+
+  .cards {
+    padding-top: 1.5rem;
+    width: 27rem * 2 + 4rem;
+    overflow: hidden;
+  }
+  .pagination {
+    margin-top: 3.9rem;
+  }
+
+  .footer {
+    display: flex;
+    justify-content: center;
+    &__content {
+      margin-top: 0;
+      width: 76.8rem;
+      height: 63.9rem;
+      justify-content: center;
+      align-content: space-between;
+    }
+  }
+
+  .content__section {
+    margin-top: 3rem;
+    width: 64rem;
+  }
+
+  .footer__image_wrapper {
+    margin-top: 2rem;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  header {
+    padding: 3rem 5rem 3rem 1rem;
+  }
+
+  .menu {
+    display: none;
+  }
+
+  .menu__burger {
+    display: block;
+    position: relative;
+    top: 1.9rem;
+    width: 3rem;
+    height: 2.2rem;
+  }
+
+  .menu__burger::before,
+  .menu__burger::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 0.2rem;
+    background-color: black;
+  }
+
+  .menu__burger::after {
+    top: 2rem;
+  }
+
+  .menu__burger span {
+    position: absolute;
+    width: 100%;
+    height: 0.2rem;
+    top: 1rem;
+    background-color: black;
+  }
+
+  .pets {
+    &__content {
+      margin: 4.2rem 0;
+      height: 156.5rem;
+      justify-content: space-between;
+      &__title {
+        @include h3-mobile;
+      }
+    }
+  }
+
+  .cards {
+    width: 27rem;
+    overflow: hidden;
+    height: 43.5rem * 3 + 6rem;
+    &__item {
+      margin: 0;
+    }
+    &__item:nth-child(2) {
+      margin: 3rem 0;
+    }
+  }
+
+  .pagination {
+    max-width: 30rem;
+  }
+
+  .footer {
+    display: flex;
+    &__content {
+      margin-top: 3rem;
+      width: 32rem;
+      justify-content: center;
+    }
+    &__image_wrapper {
+      margin-top: 5.15rem;
+      width: 26rem;
+      height: 26.9rem;
+      .puppy_img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  .content__section {
+    margin: 0;
+    justify-content: center;
+    &__list {
+      &_contacts {
+        margin: 0 1rem;
+        width: 27.9rem;
+      }
+      &_location {
+        margin: 4rem 0;
+      }
+      &__title {
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+      }
+    }
+  }
+}
